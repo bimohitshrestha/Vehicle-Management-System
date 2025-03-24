@@ -1,124 +1,185 @@
 import * as React from "react";
-import Image from "next/image";
-import { FaFacebook } from "react-icons/fa6";
-import { BsInstagram, BsWhatsapp } from "react-icons/bs";
-import { LiaLinkedin } from "react-icons/lia";
+import { CiLocationOn } from "react-icons/ci";
+
+import {
+  FaFacebook,
+  FaWhatsapp,
+  FaInstagram,
+  FaPhone,
+  FaEnvelope,
+} from "react-icons/fa";
+import { GiTireIronCross } from "react-icons/gi";
+import { LuMessageSquareMore } from "react-icons/lu";
+
+const customerService = {
+  description:
+    "Have questions? Our support team is available 24/7 to assist you with any inquiries or concerns.",
+  phone: {
+    title: "+977 9876543210",
+  },
+  email: {
+    title: "support@vehicle.com",
+  },
+  location: {
+    title: "Kathmandu,Nepal",
+  },
+  socialMedia: {
+    facebook: "",
+    whatsapp: "",
+    instagram: "",
+  },
+};
 
 const CustomerSupport = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
-  const handleClick = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+  const [activeTab, setActiveTab] = React.useState("contact");
 
-  const handleClose = () => {
-    setIsMenuOpen(false);
-  };
+  const toggleSupport = () => setIsOpen(!isOpen);
 
   return (
     <>
-      {isMenuOpen && (
+      <button
+        onClick={toggleSupport}
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-teal-500 to-indigo-600 text-white rounded-full p-5 shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+        aria-label={isOpen ? "Close support" : "Open support"}
+      >
+        {isOpen ? (
+          <GiTireIronCross className="h-8 w-8" />
+        ) : (
+          <LuMessageSquareMore className="h-8 w-8" />
+        )}
+      </button>
+
+      {isOpen && (
         <div
-          className="absolute bottom-20 right-6 w-80 bg-white rounded-lg shadow-lg p-6 z-10 border border-gray-200"
-          style={{ zIndex: 1000 }}
+          className="fixed bottom-28 right-6 z-40 bg-white rounded-lg shadow-2xl w-96 overflow-hidden transition-all"
+          style={{
+            animation: "slideIn 0.3s ease-out forwards",
+          }}
         >
-          <h2 className="text-2xl font-bold mb-4 text-gray-900">Contact Us</h2>
-          <p className="mb-4 text-gray-600">
-            If you need assistance, feel free to reach out through the methods
-            below.
-          </p>
+          <div className="bg-gray-50 px-4 pt-4">
+            <h2 className="text-xl font-bold text-gray-800 mb-2">Need Help?</h2>
+            <p className="text-sm text-gray-600 mb-4">
+              {customerService.description}
+            </p>
 
-          <div className="mb-4">
-            <div className="flex items-center mb-2">
-              <Image
-                src="/path-to-phone-icon.svg"
-                alt="Phone"
-                width={20}
-                height={20}
-                className="mr-2"
-              />
-              <span className="text-gray-700">+1 234 567 890</span>
-            </div>
-            <div className="flex items-center mb-2">
-              <Image
-                src="/path-to-email-icon.svg"
-                alt="Email"
-                width={20}
-                height={20}
-                className="mr-2"
-              />
-              <span className="text-gray-700">support@example.com</span>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-xl font-medium text-blue-900">Social Media</p>
-            <div className="flex items-center mt-2 space-x-4">
-              <a
-                target="_blank"
-                href="https://www.facebook.com/profile.php?id=61559957870032"
-                rel="noreferrer"
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500 text-white transition hover:bg-blue-600"
+            <div className="flex bg-gray-200 p-1 rounded-full mb-4">
+              <button
+                onClick={() => setActiveTab("contact")}
+                className={`flex-1 py-2 text-sm font-medium rounded-full transition-colors ${
+                  activeTab === "contact"
+                    ? "bg-white text-teal-700 shadow-sm"
+                    : "text-gray-600 hover:text-teal-600"
+                }`}
               >
-                <span className="sr-only">Facebook</span>
-                <FaFacebook className="text-3xl" />
-              </a>
-              <a
-                target="_blank"
-                href="https://wa.me/9779849623247"
-                rel="noreferrer"
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-green-500 text-white transition hover:bg-green-600"
+                Contact
+              </button>
+              <button
+                onClick={() => setActiveTab("social")}
+                className={`flex-1 py-2 text-sm font-medium rounded-full transition-colors ${
+                  activeTab === "social"
+                    ? "bg-white text-teal-700 shadow-sm"
+                    : "text-gray-600 hover:text-teal-600"
+                }`}
               >
-                <span className="sr-only">WhatsApp</span>
-                <BsWhatsapp className="text-3xl" />
-              </a>
-              <a
-                target="_blank"
-                href="https://www.instagram.com/bookvenuenepal/"
-                rel="noreferrer"
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#F52559] text-white transition hover:bg-[#F52575]"
-              >
-                <span className="sr-only">Instagram</span>
-                <BsInstagram className="text-3xl" />
-              </a>
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/company/91116558/admin/feed/posts/"
-                rel="noreferrer"
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-700 text-white transition hover:bg-blue-800"
-              >
-                <span className="sr-only">LinkedIn</span>
-                <LiaLinkedin className="text-3xl" />
-              </a>
+                Social
+              </button>
             </div>
           </div>
 
-          <button
-            onClick={handleClose}
-            className="absolute top-2 right-2 p-2 text-gray-500 hover:text-gray-700"
-            aria-label="Close"
-          >
-            <Image src="/cross.svg" alt="Close menu" width={20} height={20} />
-          </button>
+          <div className="p-4">
+            {activeTab === "contact" && (
+              <div className="space-y-4">
+                <a
+                  href={`tel:${customerService.phone.title}`}
+                  className="block"
+                >
+                  <div className="flex items-center p-3 bg-green-50 hover:bg-green-100 rounded-lg transition-colors border border-green-100">
+                    <div className="bg-green-500 text-white p-3 rounded-md">
+                      <FaPhone className="h-5 w-5" />
+                    </div>
+                    <div className="ml-4">
+                      <p className="text-sm font-semibold text-gray-900">
+                        Call Us
+                      </p>
+                      <p className="text-gray-700">
+                        {customerService.phone.title}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  href={`mailto:${customerService.email.title}`}
+                  className="block"
+                >
+                  <div className="flex items-center p-3 bg-rose-50 hover:bg-rose-100 rounded-lg transition-colors border border-rose-100">
+                    <div className="bg-rose-500 text-white p-3 rounded-md">
+                      <FaEnvelope className="h-5 w-5" />
+                    </div>
+                    <div className="ml-4">
+                      <p className="text-sm font-semibold text-gray-900">
+                        Email Us
+                      </p>
+                      <p className="text-gray-700">
+                        {customerService.email.title}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  href={`mailto:${customerService.location.title}`}
+                  className="block"
+                >
+                  <div className="flex items-center p-3 bg-teal-50 hover:bg-teal-100 rounded-lg transition-colors border border-teal-100">
+                    <div className="bg-teal-500 text-white p-3 rounded-md">
+                      <CiLocationOn className="w-5 h-5" />
+                    </div>
+                    <div className="ml-4">
+                      <p className="text-sm font-semibold text-gray-900">
+                        Location
+                      </p>
+                      <p className="text-gray-700 ">
+                        {customerService.location.title}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            )}
+
+            {activeTab === "social" && (
+              <div>
+                <p className="text-center text-gray-700 mb-4">
+                  Connect with us on social media
+                </p>
+                <div className="grid grid-cols-3 gap-3">
+                  <a href="" className="flex flex-col items-center">
+                    <div className="bg-blue-600 text-white p-3 rounded-lg mb-2 hover:shadow-md transition-all">
+                      <FaFacebook className="h-6 w-6" />
+                    </div>
+                    <span className="text-xs text-gray-600">Facebook</span>
+                  </a>
+                  <a href="" className="flex flex-col items-center">
+                    <div className="bg-green-500 text-white p-3 rounded-lg mb-2 hover:shadow-md transition-all">
+                      <FaWhatsapp className="h-6 w-6" />
+                    </div>
+                    <span className="text-xs text-gray-600">WhatsApp</span>
+                  </a>
+                  <a href="" className="flex flex-col items-center">
+                    <div className="bg-pink-600 text-white p-3 rounded-lg mb-2 hover:shadow-md transition-all">
+                      <FaInstagram className="h-6 w-6" />
+                    </div>
+                    <span className="text-xs text-gray-600">Instagram</span>
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
-
-      <button
-        type="button"
-        className="z-50 fixed bottom-6 right-6 shadow-2xl bg-blue-400 h-16 w-16 rounded-full flex items-center justify-center transition-all hover:bg-blue-500"
-        onClick={handleClick}
-        aria-controls={isMenuOpen ? "account-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={isMenuOpen ? "true" : undefined}
-      >
-        <Image
-          src={isMenuOpen ? "/cross.svg" : "/support.svg"}
-          alt="Customer Support"
-          height={30}
-          width={30}
-          className="transition-all"
-        />
-      </button>
     </>
   );
 };

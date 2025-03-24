@@ -16,7 +16,6 @@ const TwoWheelerService = () => {
   const [selectedFeature, setSelectedFeature] = useState<ServiceFeature | null>(
     null
   );
-  const [activeTab, setActiveTab] = useState("services");
 
   const serviceFeatures: ServiceFeature[] = [
     {
@@ -104,14 +103,14 @@ const TwoWheelerService = () => {
           <div
             key={feature.id}
             onClick={() => handleFeatureClick(feature)}
-            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer group transform hover:-translate-y-1"
+            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer group transform hover:-translate-y-1 flex flex-col"
           >
-            <div className="p-6">
+            <div className="p-6 flex-grow">
               <div className="flex items-center mb-4 text-black">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold ">{feature.title}</h3>
+                <h3 className="text-xl font-bold">{feature.title}</h3>
               </div>
               <p className="text-gray-600 mb-4">{feature.description}</p>
               <div className="flex flex-wrap gap-2 mt-4">
@@ -130,7 +129,7 @@ const TwoWheelerService = () => {
                 )}
               </div>
             </div>
-            <div className="bg-gray-50 p-4 flex justify-between items-center group-hover:bg-blue-50 transition-colors duration-300">
+            <div className="bg-gray-50 p-4 flex justify-between items-center group-hover:bg-blue-50 transition-colors duration-300 mt-auto">
               <span className="text-blue-600 font-medium">View Details</span>
               <FaInfoCircle className="text-blue-600" />
             </div>

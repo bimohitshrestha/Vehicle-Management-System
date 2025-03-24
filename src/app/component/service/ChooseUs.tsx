@@ -254,7 +254,7 @@ const ChooseUs = () => {
             Experience Premium Service Today
           </button>
           <p className="mt-4 text-gray-500 font-medium">
-            Join thousands of satisfied customers who've elevated their
+            Join thousands of satisfied customers who&apos;ve elevated their
             experience
           </p>
         </div>

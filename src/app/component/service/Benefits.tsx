@@ -55,18 +55,6 @@ const Benefits = () => {
       </Head>
 
       <main className="bg-gradient-to-b from-blue-50 to-blue-100 min-h-screen mb-16">
-        {/* <div className="w-full bg-blue-600 text-white py-16">
-          <div className="max-w-6xl mx-auto px-6">
-            <h1 className="text-5xl font-bold mb-4">
-              Transform Your Fleet Management
-            </h1>
-            <p className="text-xl max-w-2xl">
-              Discover how our comprehensive vehicle management system can
-              revolutionize your operations and boost your bottom line.
-            </p>
-          </div>
-        </div> */}
-
         <div className="max-w-6xl mx-auto px-6 py-16">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-16">
             Six Ways Our System Benefits You

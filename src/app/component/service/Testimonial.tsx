@@ -72,7 +72,7 @@ const Testimonial = () => {
     );
   };
 
-  const goToSlide = (index: any) => {
+  const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
 
@@ -137,7 +137,7 @@ const Testimonial = () => {
                   </div>
 
                   <p className="text-gray-700 text-sm mb-4 line-clamp-4">
-                    "{testimonial.description}"
+                    `&quot;`{testimonial.description}`&quot;`
                   </p>
 
                   <div className="flex items-center justify-between">

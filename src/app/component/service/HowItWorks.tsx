@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 import { BiCalendar, BiCheckCircle } from "react-icons/bi";
 import { BsTools } from "react-icons/bs";
@@ -26,8 +27,7 @@ const HowItWorks = () => {
       icon: <BsTools size={28} />,
       number: 2,
       title: "We Come To You",
-      description:
-        "Our expert technicians arrive at your location with all necessary tools.",
+      description: "Our expert technicians arrive at your location.",
       detailedDescription:
         "Our mobile service vans are fully equipped with professional-grade tools and genuine parts to handle any repair or maintenance needs.",
       benefits: [
@@ -123,13 +123,14 @@ const HowItWorks = () => {
             {activeStep === 0 && (
               <div className="bg-indigo-50 p-8 h-full">
                 <div className="relative h-64 lg:h-96 w-full bg-indigo-100 rounded-lg overflow-hidden">
-                  <img
-                    src="https://www.travelandleisure.com/thmb/tEmXrD53gwUayWmyE1GvF9pupd0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cheap-air-best-time-to-book-FLIGHTBOOK0319-96dcb21b53fb44da9adeff5cdabcd608.jpg"
-                    alt="Online booking on tablet"
-                    className="object-cover w-full h-full"
+                  <Image
+                    src="/onlineform.png"
+                    alt="online form"
+                    width={1000}
+                    height={1000}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-indigo-600/80 to-transparent p-4">
-                    <p className="text-white font-semibold text-xl">
+                  <div className="absolute bottom-0 left-0 right-0  mt-2 bg-gradient-to-t from-indigo-400/50 to-transparent p-1">
+                    <p className="text-green-700  font-semibold text-xl">
                       Book in under 2 minutes
                     </p>
                   </div>
@@ -156,13 +157,14 @@ const HowItWorks = () => {
             {activeStep === 1 && (
               <div className="bg-teal-50 p-8 h-full">
                 <div className="relative h-64 lg:h-96 w-full bg-teal-100 rounded-lg overflow-hidden">
-                  <img
-                    src="https://www.travelandleisure.com/thmb/tEmXrD53gwUayWmyE1GvF9pupd0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cheap-air-best-time-to-book-FLIGHTBOOK0319-96dcb21b53fb44da9adeff5cdabcd608.jpg"
+                  <Image
+                    src="/tools.png"
                     alt="Mobile technician arriving"
-                    className="object-cover w-full h-full"
+                    width={1000}
+                    height={1000}
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-teal-600/80 to-transparent p-4">
-                    <p className="text-white font-semibold text-xl">
+                    <p className="bg-clip-text text-transparent bg-gradient-to-r from-black to-teal-700 font-semibold text-xl">
                       Expert technicians at your doorstep
                     </p>
                   </div>
@@ -195,27 +197,31 @@ const HowItWorks = () => {
               </div>
             )}
 
-            {activeStep === 2 && (
+            {activeStep == 2 && (
               <div className="bg-amber-50 p-8 h-full">
                 <div className="relative h-64 lg:h-96 w-full bg-amber-100 rounded-lg overflow-hidden">
-                  <img
-                    src="https://www.travelandleisure.com/thmb/tEmXrD53gwUayWmyE1GvF9pupd0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cheap-air-best-time-to-book-FLIGHTBOOK0319-96dcb21b53fb44da9adeff5cdabcd608.jpg"
-                    alt="Completed bike service"
-                    className="object-cover w-full h-full"
+                  <Image
+                    src="/completion.jpg"
+                    alt="service complete"
+                    width={2000}
+                    height={1000}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-amber-600/80 to-transparent p-4">
-                    <p className="text-white font-semibold text-xl">
-                      Professional service completed
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from amber-600/80 to-transparent p-4">
+                    {/* <p className="bg-clip-text text-transparent bg-gradient-to-r from-black to-rose-600 font-semibold text-xl">
+                      Professional Service Completed
+                    </p> */}
+                    <p className="text-blue-600 font-semibold text-xl mr-4">
+                      Professional Service Completed
                     </p>
                   </div>
                 </div>
-                <div className="mt-4 bg-white p-4 rounded-lg shadow-md">
+                <div className="mt-4 bg-white p-4 roundedddd-lg shadow-md">
                   <p className="text-amber-600 font-medium">
-                    Comprehensive service report
+                    Comprehensive Service Report
                   </p>
                   <div className="mt-2 flex items-center text-sm text-gray-600">
-                    <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-2"></span>
-                    <span>All work backed by our 90-day guarantee</span>
+                    <span className="inline-block w-3 h-3 bg0green-500 rounded-full mr-2"></span>
+                    <span>All work backed by our 60-day guarantee</span>
                   </div>
                 </div>
               </div>

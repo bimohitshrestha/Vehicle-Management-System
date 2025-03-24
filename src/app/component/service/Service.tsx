@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaMotorcycle } from "react-icons/fa";
 
 import { GiScooter } from "react-icons/gi";
 
 import { MdOutlineElectricBike } from "react-icons/md";
-import { RiEBike2Line, RiMotorbikeFill } from "react-icons/ri";
+import { RiMotorbikeFill } from "react-icons/ri";
 import { TbMotorbike } from "react-icons/tb";
 import ChooseUs from "./ChooseUs";
 import TwoWheelerService from "./TwoWheelerService";
@@ -12,15 +12,7 @@ import HowItWorks from "./HowItWorks";
 import Testimonial from "./Testimonial";
 import Benefits from "./Benefits";
 import CustomerSupport from "../customer-support/CustomerSupport";
-
-interface ServiceFeature {
-  id: string;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  benefits: string[];
-  image: string;
-}
+import Latestpost from "../latest-post/Latestpost";
 
 const Service = () => {
   const bikeTypes = [
@@ -55,7 +47,7 @@ const Service = () => {
             </h3>
           </div>
           <div className="p-6">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 ">
               {bikeTypes.map((bike, index) => (
                 <div
                   key={index}
@@ -78,6 +70,8 @@ const Service = () => {
         <Benefits />
 
         <Testimonial />
+        <Latestpost />
+        <CustomerSupport />
 
         <div className="bg-blue-600 rounded-xl overflow-hidden text-black">
           <div className="flex flex-col md:flex-row">

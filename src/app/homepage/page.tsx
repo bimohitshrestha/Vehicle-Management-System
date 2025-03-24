@@ -1,13 +1,12 @@
 "use client";
 import Head from "next/head";
-import Image from "next/image";
+
 import { useState } from "react";
-import Navbar from "../component/navbar/page";
+
 import Service from "../component/service/Service";
-import { FaClock } from "react-icons/fa6";
-import Footer from "../component/Footer/Footer";
+
 import ServiceRequestModal from "../component/modal/ServiceRequestModal";
-import CustomerSupport from "../component/customer-support/CustomerSupport";
+import Image from "next/image";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -76,13 +75,14 @@ export default function Home() {
       </Head>
 
       <main>
-        <Navbar />
         <div className="bg-gradient-to-r from-blue-900 to-blue-700 text-white">
           <header className="relative w-full h-screen">
-            <img
-              src="https://fleetgo.com/wp-content/uploads/2022/11/Vehicle-Management-System-1024x683.webp"
+            <Image
+              src="/management.png"
               alt="Vehicle Management System"
               className="absolute inset-0 w-full h-full object-cover"
+              width={1000}
+              height={1000}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-black/70"></div>
 
@@ -117,8 +117,6 @@ export default function Home() {
         </div>
 
         <Service />
-        {/* <CustomerSupport /> */}
-        <Footer />
       </main>
     </div>
   );

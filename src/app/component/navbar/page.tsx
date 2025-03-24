@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { RxCross1 } from "react-icons/rx";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,37 +17,33 @@ export default function Navbar() {
                 VehicleManager
               </span>
             </div>
+          </div>
 
-            <div className="hidden md:ml-6 md:flex md:space-x-4">
+          <div className="flex items-center justify-center flex-1">
+            <div className="hidden md:flex md:space-x-4 text-base font-medium">
               <Link
-                href="/"
-                className="text-white px-3 py-2 rounded-md text-sm font-medium bg-blue-700"
+                href="/homepage"
+                className="text-white px-3 py-2 rounded-md   hover:bg-blue-700"
               >
-                Dashboard
+                Home
               </Link>
               <Link
-                href="/about"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                href="/homepage/about"
+                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md"
               >
                 About Us
               </Link>
               <Link
-                href="/maintenance"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                href="/homepage/service"
+                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md"
               >
-                Maintenance
+                Service
               </Link>
               <Link
-                href="/drivers"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                href="/homepage/contact-us"
+                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md "
               >
-                Drivers
-              </Link>
-              <Link
-                href="/reports"
-                className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Reports
+                Contact Us
               </Link>
             </div>
           </div>
@@ -72,37 +70,9 @@ export default function Navbar() {
               >
                 <span className="sr-only">Open main menu</span>
                 {!isMenuOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
+                  <GiHamburgerMenu className="block h-6 w-6" />
                 ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  <RxCross1 className="block h-6 w-6" />
                 )}
               </button>
             </div>
@@ -120,28 +90,23 @@ export default function Navbar() {
               Dashboard
             </Link>
             <Link
-              href="/about"
+              href="/homepage/about"
               className="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
             >
               About Us
             </Link>
             <Link
-              href="/maintenance"
+              href="/homepage/service"
               className="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
             >
-              Maintenance
+              Service
             </Link>
+
             <Link
-              href="/drivers"
+              href="/homepage/contact-us"
               className="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
             >
-              Drivers
-            </Link>
-            <Link
-              href="/reports"
-              className="text-white hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Reports
+              Contact Us
             </Link>
           </div>
         </div>
