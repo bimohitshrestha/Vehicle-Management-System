@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import InputField from "../component/Field/InputField";
+import ButtonText from "../component/common/button/ButtonText";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -13,8 +14,8 @@ export default function Register() {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    // e.preventDefault();
     setLoading(true);
     setError("");
 
@@ -40,7 +41,7 @@ export default function Register() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-5xl w-full flex flex-col md:flex-row">
         <div className="md:w-1/2 hidden md:block relative">
-          <div className="absolute inset-0 bg-blue-600 opacity-90"></div>
+          <div className="absolute inset-0 btn-gradient opacity-90"></div>
           <div className="relative h-full flex items-center justify-center p-12">
             <div className="text-white z-10">
               <h2 className="text-3xl font-bold mb-6">
@@ -152,13 +153,14 @@ export default function Register() {
             </div>
 
             <div>
-              <button
+              {/* <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white btn-gradient"
               >
                 Register
-              </button>
+              </button> */}
+              <ButtonText name="Register" type="submit" onClick={handleSubmit}/>
             </div>
           </form>
 

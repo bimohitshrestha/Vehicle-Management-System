@@ -42,7 +42,7 @@ const ServiceRequestModal: React.FC<ServiceRequestModalProps> = ({
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg w-full max-w-2xl">
-        <div className="bg-blue-600 text-white py-4 px-6 rounded-t-lg">
+        <div className="bg-primary text-white py-4 px-6 rounded-t-lg">
           <h2 className="text-xl font-semibold">Vehicle Service Request</h2>
         </div>
 
@@ -188,10 +188,7 @@ const ServiceRequestModal: React.FC<ServiceRequestModalProps> = ({
             >
               Cancel
             </button>
-            <button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors cursor-pointer"
-            >
+            <button type="submit" className="btn-gradient">
               Submit Request
             </button>
           </div>

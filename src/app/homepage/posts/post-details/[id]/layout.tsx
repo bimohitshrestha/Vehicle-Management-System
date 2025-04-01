@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  return <main className="h-[100%]  bg-white ">{children}</main>;
+  return <main className="h-[100%]  bg-gradient-layout">{children}</main>;
 };
 
 export default Layout;

@@ -36,10 +36,8 @@ const RelatedPosts: React.FC<RelatedPostsProps> = ({ relatedPosts }) => {
                 height={210}
               />
             </div>
-            <h4 className="text-xl font-semibold text-indigo-600 mb-2">
-              <Link href={``} className="hover:text-indigo-800">
-                {relatedPost.title}
-              </Link>
+            <h4 className="text-xl font-semibold text-secondary mb-2">
+              <Link href={``}>{relatedPost.title}</Link>
             </h4>
             <p className="text-sm text-gray-500 mb-4">
               {new String(relatedPost.description).substring(0, 100)}...

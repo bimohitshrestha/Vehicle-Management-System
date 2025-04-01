@@ -85,7 +85,7 @@ const PostCard = ({ posts, required }: PostCardProps) => {
               </div>
             )}
 
-            <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-indigo-600 transition-colors duration-300">
+            <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-[#8E443D]/80 transition-colors duration-300">
               {post.title}
             </h3>
             <p className="text-slate-600 text-sm mb-6 line-clamp-3">
@@ -94,7 +94,7 @@ const PostCard = ({ posts, required }: PostCardProps) => {
 
             <div className="mt-auto flex flex-col space-y-4">
               <button
-                className="self-start text-indigo-600 font-medium flex items-center hover:text-indigo-800 transition-colors"
+                className="self-start text-primary font-medium flex items-center  transition-colors"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleCardClick(post.id);

@@ -1,15 +1,104 @@
 @import "tailwindcss";
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
+} */
+
+/* :root {
+  --primary-color: #8E443D;
+  --secondary-color: #CB9173;
+  --gradient-bg: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+} */
+
+.text-primary {
+  color: #CB9173;
+  ;
 }
 
-@theme inline {
+.text-secondary {
+  color: #8E443D;
+}
+
+.text-primary:hover {
+  color: #CB8563;
+}
+
+.text-secondary:hover {
+  color: #9b4840;
+}
+
+.bg-primary {
+  background-color: #CB9173;
+}
+
+.bg-primary:hover {
+  background-color: #CB9188;
+}
+
+.bg-secondary {
+  background-color: #8E443D;
+}
+
+.bg-secondary:hover {
+  background-color: #8E443D;
+}
+
+
+.bg-custom-gradient {
+  background: linear-gradient(to bottom, #8e443D, #CB9172);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+}
+
+.bg-custom-secondary {
+  background: linear-gradient(to right, #8E443D, #CB9173);
+}
+
+.bg-gradient-layout {
+  background: linear-gradient(to right, #F9F3F0, white);
+}
+
+.bg-gradient-home {
+  background: linear-gradient(to top, #F9F3F0, #CB9173);
+}
+
+
+
+
+.btn-gradient {
+  background-image: linear-gradient(to right, #8E443D, #CB9173);
+  color: #fff;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.btn-gradient:hover {
+  background-image: linear-gradient(to right, #CB9173, #8E443D);
+}
+
+/* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+} */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 @media (prefers-color-scheme: dark) {

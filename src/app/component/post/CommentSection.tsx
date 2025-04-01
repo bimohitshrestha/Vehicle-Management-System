@@ -1,4 +1,8 @@
+import ButtonText from "../common/button/ButtonText";
+
+
 const CommentsSection: React.FC = () => {
+  const handleClick = () => {};
   return (
     <div className="mt-12 space-y-6">
       <h3 className="text-3xl font-semibold text-slate-800">Comments</h3>
@@ -22,9 +26,10 @@ const CommentsSection: React.FC = () => {
           className="w-full p-4 bg-white border text-black border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           rows={4}
         />
-        <button className="mt-4 bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-800 transition duration-300">
-          Post Comment
-        </button>
+
+        <div className="mt-4">
+          <ButtonText name="Post Comment" onClick={handleClick} />
+        </div>
       </div>
     </div>
   );

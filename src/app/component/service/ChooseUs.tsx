@@ -1,71 +1,3 @@
-// import React from "react";
-// import { BiTimeFive } from "react-icons/bi";
-// import { BsShieldCheck } from "react-icons/bs";
-// import { FaPhoneAlt, FaShieldAlt } from "react-icons/fa";
-// import { FaChartLine, FaClock, FaUserClock } from "react-icons/fa6";
-
-// const ChooseUs = () => {
-//   const additionalFeatures = [
-//     {
-//       icon: <BiTimeFive size={24} />,
-//       title: "Time-Saving",
-//       description: "Save up to 3 hours compared to traditional shop visits",
-//     },
-//     {
-//       icon: <BsShieldCheck size={24} />,
-//       title: "Guaranteed Quality",
-//       description: "All services backed by our satisfaction guarantee",
-//     },
-//     {
-//       icon: <FaUserClock size={24} />,
-//       title: "Expert Technicians",
-//       description: "Certified professionals with 5+ years experience",
-//     },
-//     {
-//       icon: <FaPhoneAlt size={24} />,
-//       title: "Customer Support",
-//       description: "Available 7 days a week for any questions",
-//     },
-//   ];
-
-//   return (
-//     <>
-//       <div className="bg-white rounded-xl p-8 shadow-md">
-//         <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">
-//           Why Choose Our Service
-//         </h3>
-//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-//           {additionalFeatures.map((feature, index) => (
-//             <div
-//               key={index}
-//               className="p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
-//             >
-//               <div className="flex items-start">
-//                 <div className="text-indigo-600 mr-4">{feature.icon}</div>
-//                 <div>
-//                   <h4 className="font-bold text-gray-800 mb-1">
-//                     {feature.title}
-//                   </h4>
-//                   <p className="text-sm text-gray-600">{feature.description}</p>
-//                 </div>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       <div className="mt-12 text-center">
-//         <button className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-teal-600 text-white font-bold rounded-full hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1">
-//           Book Your Service Now
-//         </button>
-//         <p className="mt-4 text-gray-600">
-//           No obligations, cancel or reschedule anytime
-//         </p>
-//       </div>
-//     </>
-//   );
-// };
-
 import React, { useState } from "react";
 import {
   FaChartLine,
@@ -75,6 +7,9 @@ import {
   FaUserClock,
   FaRegLightbulb,
 } from "react-icons/fa";
+import ButtonText from "../common/button/ButtonText";
+import TextHeader from "../common/headerText/TextHeader";
+
 
 const ChooseUs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -131,21 +66,19 @@ const ChooseUs = () => {
     },
   ];
 
+  const handleClick = () => {
+    alert("You clicked Experience Premium Service Today Button ");
+  };
+
   return (
     <div className="max-w-6xl mx-auto py-12 px-10 relative overflow-hidden mb-16">
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-indigo-100 rounded-full opacity-20 blur-3xl"></div>
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-100 rounded-full opacity-20 blur-3xl"></div>
 
       <div className="relative">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-extrabold mb-3 bg-gradient-to-r from-indigo-600 to-violet-600 inline-block text-transparent bg-clip-text">
-            The Premium Experience
-          </h2>
-          <p className="text-gray-600 max-w-xl mx-auto">
-            Discover why our clients consistently choose our services for their
-            needs, and what sets us apart from the competition.
-          </p>
-        </div>
+      
+
+        <TextHeader title="The Premium Experience" description="Discover why our clients consistently choose our services for their needs, and what sets us apart from the competition"  />
 
         <div className="flex flex-wrap justify-center gap-2 mb-12">
           {benefits.map((benefit, index) => (
@@ -250,9 +183,10 @@ const ChooseUs = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <button className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-            Experience Premium Service Today
-          </button>
+          <ButtonText
+            name="Experience Premium Service Today"
+            onClick={handleClick}
+          />
           <p className="mt-4 text-gray-500 font-medium">
             Join thousands of satisfied customers who&apos;ve elevated their
             experience

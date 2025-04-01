@@ -118,12 +118,12 @@ export default function Contact() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white ">
+    <div className="">
       <main className="container mx-auto px-4 py-16">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/3 bg-gradient-to-br from-blue-600 to-blue-800 text-white p-8 md:p-10">
-              <h2 className="text-2xl font-bold mb-6 ">Connect With Us</h2>
+            <div className="md:w-1/3 btn-gradient text-black p-8 md:p-10">
+              <h2 className="text-2xl font-bold mt-3 ">Connect With Us</h2>
 
               <div className="space-y-6 mb-10">
                 {contactMethods.map((method, index) => (
@@ -260,7 +260,7 @@ export default function Contact() {
 
                 <div className="flex items-center justify-between">
                   <button
-                    className={`inline-flex items-center px-6 py-3 bg-blue-600 border border-transparent rounded-lg font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition cursor-pointer ${
+                    className={`btn-gradient text-white font-medium py-2 px-6 rounded-lg transition duration-300 cursor-pointer ${
                       loading ? "opacity-75 cursor-not-allowed" : ""
                     }`}
                   >

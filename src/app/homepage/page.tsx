@@ -1,15 +1,29 @@
 "use client";
-import Head from "next/head";
 
 import { useState } from "react";
-
 import Service from "../component/service/Service";
-
 import ServiceRequestModal from "../component/modal/ServiceRequestModal";
-import Image from "next/image";
+import { motion, useScroll } from "framer-motion";
+import CountUp from "../component/Countup/CountUp";
+
+// const data = [
+//   {
+//     number: "25k",
+//     title: "Vehicles Managed",
+//   },
+//   {
+//     number: "98%",
+//     title: "Customer Satisfaction",
+//   },
+//   {
+//     number: "24/7",
+//     title: "Support Available",
+//   },
+// ];
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -64,60 +78,71 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Head>
-        <title>MotoServe - Motorcycle Service at Your Doorstep</title>
-        <meta
-          name="description"
-          content="Book motorcycle service and repair at your doorstep"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <>
       <main>
-        <div className="bg-gradient-to-r from-blue-900 to-blue-700 text-white">
-          <header className="relative w-full h-screen">
-            <Image
-              src="/management.png"
-              alt="Vehicle Management System"
-              className="absolute inset-0 w-full h-full object-cover"
-              width={1000}
-              height={1000}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-black/70"></div>
-
-            <div className="relative z-10 container mx-auto px-6 flex flex-col items-center justify-center h-full text-white">
-              <h1 className="text-5xl sm:text-7xl font-bold mb-6 text-center leading-tight">
+        <section className="relative h-screen flex items-center justify-center bg-gradient-home">
+          <div className="relative z-10 container mx-auto px-6 py-24 flex flex-col items-center justify-center text-white">
+            <div className="max-w-4xl text-center">
+              <h1 className="text-5xl sm:text-7xl font-bold mb-6 leading-tight text-black">
                 Vehicle Management{" "}
-                <span className="text-blue-400">Simplified</span>
+                <span className="text-secondary">Simplified</span>
               </h1>
-              <p className="text-xl sm:text-2xl mb-8 max-w-2xl text-center">
+
+              <p className="text-xl sm:text-2xl mb-12 max-w-2xl mx-auto opacity-90">
                 Streamline your fleet operations with our comprehensive
-                management solution
+                management solution.
               </p>
 
-              <div className="flex items-center">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mt-10">
                 <button
                   onClick={openModal}
-                  className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold transition-all cursor-pointer"
+                  className="btn-gradient hover:scale-105 transition-transform duration-200"
                 >
                   Send Service Request
                 </button>
+
+                <button className=" border-2  text-secondary py-4 px-8 rounded-lg font-semibold text-lg cursor-pointer hover:text-white transition-all">
+                  Learn More
+                </button>
               </div>
             </div>
-          </header>
-          <ServiceRequestModal
-            isModalOpen={isModalOpen}
-            formData={formData}
-            setFormData={setFormData}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            closeModal={closeModal}
-          />
-        </div>
+
+            <div className="flex items-center justify-center  gap-20 mt-24 w-full max-w-4xl z-1">
+              <div className=" ">
+                <div className="flex items-center text-5xl font-bold text-secondary mb-2">
+                  <CountUp start={0} end={25} duration={2000} />
+                  K+
+                </div>
+                <div className="text-black text-lg">Vehicle Managed</div>
+              </div>
+
+              <div className="">
+                <div className="flex text-5xl font-bold text-secondary mb-2">
+                  <CountUp start={0} end={98} duration={2000} />%
+                </div>
+                <div className="text-black text-lg">Customer Satisfaction</div>
+              </div>
+              <div className="">
+                <div className="flex text-5xl font-bold text-secondary mb-2">
+                  <CountUp start={0} end={24} suffix={"/7"} duration={2000} />
+                </div>
+                <div className="text-black text-lg">Support Available</div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <Service />
       </main>
-    </div>
+
+      <ServiceRequestModal
+        isModalOpen={isModalOpen}
+        formData={formData}
+        setFormData={setFormData}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        closeModal={closeModal}
+      />
+    </>
   );
 }

@@ -81,18 +81,18 @@ const LatestPosts: React.FC = () => {
     <div className="py-12 px-4 mb-16">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-slate-800 relative">
-            <span className="relative z-10">Latest Posts</span>
+          <h2 className="text-3xl font-bold relative text-secondary">
+            <span className="relative z-10 ">Latest Posts</span>
           </h2>
           <Link
             href="/homepage/posts"
-            className="flex items-center group text-indigo-600 font-medium"
+            className="flex items-center group text-primary font-medium"
           >
             <span>View all posts</span>
             <BsArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
-        <PostCard posts={posts} required={false} />
+        <PostCard posts={posts} required={true} />
       </div>
     </div>
   );

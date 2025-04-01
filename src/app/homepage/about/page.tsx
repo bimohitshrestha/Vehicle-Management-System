@@ -61,31 +61,30 @@ const About = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen">
+    <div className="">
       <div className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="pt-16 pb-20">
             <div className="text-center">
-              <h1 className="text-5xl font-extrabold text-blue-600 tracking-tight mb-4">
-                About <span className="text-blue-800">Us</span>
+              <h1 className="bg-custom-gradient text-transparent text-4xl bg-clip-text font-bold mb-4 uppercase">
+                About Us
               </h1>
               <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-600">
                 Transforming vehicle management for businesses of all sizes with
                 intelligent, data-driven solutions.
               </p>
               <div className="mt-8 flex justify-center">
-                <div className="rounded-md shadow">
-                  <a
-                    href="#demo"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
-                  >
-                    Request Demo
-                  </a>
-                </div>
+                <a
+                  href="#demo"
+                  className="flex items-center px-4 py-2 bg-secondary   text-white font-medium  rounded-lg transition duration-300 cursor-pointer"
+                >
+                  Request Demo
+                </a>
+
                 <div className="ml-3 rounded-md shadow">
                   <a
                     href="#learn"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-black  bg-white hover:bg-[#CB9173]/50 md:py-4 md:text-lg md:px-10"
                   >
                     Learn More
                   </a>
@@ -100,8 +99,8 @@ const About = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
           <div className="relative mb-10 lg:mb-0">
             <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden shadow-xl">
-              <div className="bg-blue-100 h-64 rounded-lg flex items-center justify-center">
-                <RiMotorbikeLine size={120} className="text-blue-500" />
+              <div className="bg-[#CB9173]/50 h-80 rounded-lg flex items-center justify-center">
+                <RiMotorbikeLine size={120} className="text-custom-secondary" />
               </div>
             </div>
           </div>
@@ -130,15 +129,15 @@ const About = () => {
         </div>
       </div>
 
-      <div className="bg-blue-100 py-16">
+      <div className=" py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
               Our Journey
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-              From humble beginnings to industry leadership, our journey has
-              been shaped by our commitment to innovation and excellence.
+              From humble beginnings to industry whiteleadership, our journey
+              has been shaped by our commitment to innovation and excellence.
             </p>
             <div className="mt-8 text-lg text-gray-600 space-y-4">
               <p>
@@ -195,7 +194,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="bg-blue-50 py-16">
+      <div className="bg-blue-50 py-16 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
@@ -235,7 +234,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="bg-gray-50">
+      {/* <div className="bg-gray-50">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:py-16">
           <div className="bg-blue-600 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
             <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
@@ -275,7 +274,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

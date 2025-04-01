@@ -167,7 +167,7 @@ const PostDetail: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         <Link
           href="/homepage/posts"
-          className="flex items-center text-indigo-600 font-semibold mb-8 hover:text-indigo-800 transition-all duration-300"
+          className="flex items-center text-[#CB9173] font-semibold mb-8 hover:text-[#CB9173]/80 text-lg transition-all duration-300"
         >
           <BsArrowLeft className="h-5 w-5 mr-2" />
           Back to Posts

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 interface InputFieldInterface {
-  label: string;
+  label?: string;
   name: string;
-  value: string;
+  value?: string;
   onChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
@@ -14,6 +14,7 @@ interface InputFieldInterface {
   rows?: number;
   showPasswordToggle?: boolean;
   confirmPassWordToggle?: boolean;
+  error?: string | false; 
 }
 
 const InputField: React.FC<InputFieldInterface> = ({
@@ -27,6 +28,7 @@ const InputField: React.FC<InputFieldInterface> = ({
   rows,
   showPasswordToggle = false,
   confirmPassWordToggle = false,
+  error, 
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
@@ -62,7 +64,7 @@ const InputField: React.FC<InputFieldInterface> = ({
             value={value}
             onChange={onChange}
             placeholder={placeholder}
-            className="w-full px-4 py-2 border border-gray-300 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-gray-300 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-[#CB9173]"
             required={required}
           />
         )}
@@ -76,6 +78,7 @@ const InputField: React.FC<InputFieldInterface> = ({
           </button>
         )}
       </div>
+      {error && <p className="text-red-500 text-base mt-1">{error}</p>} 
     </div>
   );
 };

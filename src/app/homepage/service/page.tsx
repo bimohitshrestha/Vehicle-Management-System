@@ -95,23 +95,13 @@ const featuresData = [
 export default function Services() {
   return (
     <>
-      <Head>
-        <title>VehicleSync Pro - Fleet Management Services</title>
-        <meta
-          name="description"
-          content="Manage your vehicle fleet efficiently with our comprehensive Vehicle Management System"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+      <div className="">
         <div className="container mx-auto px-6 py-16 max-w-6xl">
           <div className="text-center mb-16">
-            <span className="bg-indigo-100 text-indigo-700 py-1 px-4 rounded-full text-sm font-semibold inline-block mb-4 uppercase">
+            <span className="bg-custom-gradient text-transparent text-4xl bg-clip-text font-bold  uppercase mb-10">
               powerful features
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 ">
               Smart Tools for Modern Fleet Management
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -144,7 +134,7 @@ export default function Services() {
                     </div>
 
                     <div className="absolute top-0 left-0 right-0 opacity-0 translate-y-3 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0">
-                      <p className="font-medium text-indigo-700 mb-4 ">
+                      <p className="font-medium text-primary mb-4 ">
                         {feature.extraInfo}
                       </p>
                       <ul className="space-y-2">
@@ -164,7 +154,7 @@ export default function Services() {
             ))}
           </div>
 
-          <div className="bg-indigo-50 rounded-2xl p-12 mb-16">
+          <div className="bg-rose-50 rounded-2xl p-12 mb-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-800 mb-3">
                 Trusted By Many
@@ -182,7 +172,7 @@ export default function Services() {
                 { value: "24/7", label: "Customer Support" },
               ].map((data, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-indigo-600 mb-2">
+                  <div className="bg-gradient-to-b from-[#8E443D] to-[#CB9173]  text-transparent text-4xl bg-clip-text font-bold">
                     {data.value}
                   </div>
                   <div className="text-gray-600">{data.label}</div>
@@ -191,7 +181,7 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-indigo-600 to-blue-700 rounded-2xl p-12 text-white text-center">
+          <div className=" p-12 text-black text-center">
             <h2 className="text-3xl font-bold mb-4">
               Ready to Optimize Your Fleet?
             </h2>
@@ -201,10 +191,10 @@ export default function Services() {
               challenges.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-indigo-600 py-3 px-8 rounded-lg font-semibold shadow-lg hover:bg-gray-100 transition duration-300">
+              <button className="bg-[#8E443D]  hover:bg-[#8E443D] text-white font-medium py-2 px-6 rounded-lg transition duration-300 cursor-pointer">
                 Schedule Demo
               </button>
-              <button className="bg-transparent border-2 border-white py-3 px-8 rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition duration-300">
+              <button className="bg-transparent border-2 border-[#8E443D] py-3 px-8 rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition duration-300">
                 View Pricing
               </button>
             </div>
@@ -216,14 +206,14 @@ export default function Services() {
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   Sales Inquiries
                 </h3>
-                <p className="text-indigo-600">sales@vehiclesyncpro.com</p>
+                <p className="text-rose-300">sales@vehiclesyncpro.com</p>
                 <p className="text-gray-600">1-800-FLEET-PRO</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   Support
                 </h3>
-                <p className="text-indigo-600">support@vehiclesyncpro.com</p>
+                <p className="text-rose-300">support@vehiclesyncpro.com</p>
                 <p className="text-gray-600">Available 24/7</p>
               </div>
               <div>

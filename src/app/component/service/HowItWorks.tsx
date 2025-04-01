@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { BiCalendar, BiCheckCircle } from "react-icons/bi";
 import { BsTools } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import TextHeader from "../common/headerText/TextHeader";
+
 
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -55,28 +58,34 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="py-16 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">
+        {/* <div className="text-center mb-12">
+          <h2 className="bg-custom-gradient text-transparent text-4xl bg-clip-text font-bold">
             How It Works
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             Experience the convenience of our mobile bike service in just three
             simple steps. Professional service delivered right to your doorstep.
           </p>
-        </div>
+        </div> */}
+
+        <TextHeader title="How It Works" description="Experience the convenience of our mobile bike service in just three simple steps. Professional service delivered right to your doorstep" />
 
         <div className="flex flex-col lg:flex-row gap-8 items-center">
           <div className="w-full lg:w-1/2 space-y-6">
             {steps.map((step, index) => (
-              <div
+              <motion.div
                 key={index}
                 className={`rounded-xl shadow-lg transition-all duration-300 ${
                   activeStep === index
-                    ? `bg-white border-l-4 border-indigo-600`
+                    ? `bg-white border-l-4 border-[#CB9173]`
                     : "bg-white opacity-70"
                 }`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
               >
                 <div
                   className="p-6 flex items-center cursor-pointer"
@@ -104,128 +113,138 @@ const HowItWorks = () => {
                       <h4 className="font-semibold text-gray-800">Benefits:</h4>
                       <ul className="mt-2 space-y-2 text-gray-700">
                         {step.benefits.map((benefit, i) => (
-                          <li key={i} className="flex items-center">
+                          <motion.li
+                            key={i}
+                            className="flex items-center"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: i * 0.1 }}
+                          >
                             <span
                               className={`w-2 h-2 rounded-full mr-2 ${step.color}`}
                             ></span>
                             {benefit}
-                          </li>
+                          </motion.li>
                         ))}
                       </ul>
                     </div>
                   </div>
                 )}
-              </div>
+              </motion.div>
             ))}
           </div>
 
           <div className="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-xl">
-            {activeStep === 0 && (
-              <div className="bg-indigo-50 p-8 h-full">
-                <div className="relative h-64 lg:h-96 w-full bg-indigo-100 rounded-lg overflow-hidden">
-                  <Image
-                    src="/onlineform.png"
-                    alt="online form"
-                    width={1000}
-                    height={1000}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0  mt-2 bg-gradient-to-t from-indigo-400/50 to-transparent p-1">
-                    <p className="text-green-700  font-semibold text-xl">
-                      Book in under 2 minutes
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              {activeStep === 0 && (
+                <div className="bg-indigo-50 p-8 h-full">
+                  <div className="relative h-64 lg:h-96 w-full bg-indigo-100 rounded-lg overflow-hidden">
+                    <Image
+                      src="/onlineform.png"
+                      alt="online form"
+                      width={1000}
+                      height={1000}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 mt-2 bg-gradient-to-t from-indigo-400/50 to-transparent p-1">
+                      <p className="text-green-700 font-semibold text-xl">
+                        Book in under 2 minutes
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-4 bg-white p-4 rounded-lg shadow-md">
+                    <p className="text-indigo-600 font-medium">
+                      Simple 3-step booking process
                     </p>
+                    <div className="mt-2 flex items-center justify-between text-sm text-gray-600">
+                      <span>Select service</span>
+                      <span>
+                        <FaArrowRightLong />
+                      </span>
+                      <span>Choose time</span>
+                      <span>
+                        <FaArrowRightLong />
+                      </span>
+                      <span>Confirm</span>
+                    </div>
                   </div>
                 </div>
-                <div className="mt-4 bg-white p-4 rounded-lg shadow-md">
-                  <p className="text-indigo-600 font-medium">
-                    Simple 3-step booking process
-                  </p>
-                  <div className="mt-2 flex items-center justify-between text-sm text-gray-600">
-                    <span>Select service</span>
-                    <span>
-                      <FaArrowRightLong />
-                    </span>
-                    <span>Choose time</span>
-                    <span>
-                      <FaArrowRightLong />
-                    </span>
-                    <span>Confirm</span>
-                  </div>
-                </div>
-              </div>
-            )}
+              )}
 
-            {activeStep === 1 && (
-              <div className="bg-teal-50 p-8 h-full">
-                <div className="relative h-64 lg:h-96 w-full bg-teal-100 rounded-lg overflow-hidden">
-                  <Image
-                    src="/tools.png"
-                    alt="Mobile technician arriving"
-                    width={1000}
-                    height={1000}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-teal-600/80 to-transparent p-4">
-                    <p className="bg-clip-text text-transparent bg-gradient-to-r from-black to-teal-700 font-semibold text-xl">
-                      Expert technicians at your doorstep
+              {activeStep === 1 && (
+                <div className="bg-teal-50 p-8 h-full">
+                  <div className="relative h-64 lg:h-96 w-full bg-teal-100 rounded-lg overflow-hidden">
+                    <Image
+                      src="/tools.png"
+                      alt="Mobile technician arriving"
+                      width={1000}
+                      height={1000}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-teal-600/80 to-transparent p-4">
+                      <p className="bg-clip-text text-transparent bg-gradient-to-r from-black to-teal-700 font-semibold text-xl">
+                        Expert technicians at your doorstep
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-4 bg-white p-4 rounded-lg shadow-md">
+                    <p className="text-teal-600 font-medium">
+                      Fully equipped service vans
                     </p>
-                  </div>
-                </div>
-                <div className="mt-4 bg-white p-4 rounded-lg shadow-md">
-                  <p className="text-teal-600 font-medium">
-                    Fully equipped service vans
-                  </p>
-                  <div className="mt-2 grid grid-cols-3 gap-2 text-sm text-gray-600">
-                    <div className="flex flex-col items-center">
-                      <span className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mb-1">
-                        <BsTools size={16} className="text-teal-600" />
-                      </span>
-                      <span>Tools</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <span className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mb-1">
-                        <BsTools size={16} className="text-teal-600" />
-                      </span>
-                      <span>Parts</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <span className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mb-1">
-                        <BsTools size={16} className="text-teal-600" />
-                      </span>
-                      <span>Expertise</span>
+                    <div className="mt-2 grid grid-cols-3 gap-2 text-sm text-gray-600">
+                      <div className="flex flex-col items-center">
+                        <span className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mb-1">
+                          <BsTools size={16} className="text-teal-600" />
+                        </span>
+                        <span>Tools</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <span className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mb-1">
+                          <BsTools size={16} className="text-teal-600" />
+                        </span>
+                        <span>Parts</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <span className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center mb-1">
+                          <BsTools size={16} className="text-teal-600" />
+                        </span>
+                        <span>Expertise</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {activeStep == 2 && (
-              <div className="bg-amber-50 p-8 h-full">
-                <div className="relative h-64 lg:h-96 w-full bg-amber-100 rounded-lg overflow-hidden">
-                  <Image
-                    src="/completion.jpg"
-                    alt="service complete"
-                    width={2000}
-                    height={1000}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from amber-600/80 to-transparent p-4">
-                    {/* <p className="bg-clip-text text-transparent bg-gradient-to-r from-black to-rose-600 font-semibold text-xl">
-                      Professional Service Completed
-                    </p> */}
-                    <p className="text-blue-600 font-semibold text-xl mr-4">
-                      Professional Service Completed
+              {activeStep == 2 && (
+                <div className="bg-amber-50 p-8 h-full">
+                  <div className="relative h-64 lg:h-96 w-full bg-amber-100 rounded-lg overflow-hidden">
+                    <Image
+                      src="/completion.jpg"
+                      alt="service complete"
+                      width={2000}
+                      height={1000}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from amber-600/80 to-transparent p-4">
+                      <p className="text-blue-600 font-semibold text-xl mr-4">
+                        Professional Service Completed
+                      </p>
+                    </div>
+                  </div>
+                  <div className="mt-4 bg-white p-4 roundedddd-lg shadow-md">
+                    <p className="text-amber-600 font-medium">
+                      Comprehensive Service Report
                     </p>
+                    <div className="mt-2 flex items-center text-sm text-gray-600">
+                      <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                      <span>All work backed by our 60-day guarantee</span>
+                    </div>
                   </div>
                 </div>
-                <div className="mt-4 bg-white p-4 roundedddd-lg shadow-md">
-                  <p className="text-amber-600 font-medium">
-                    Comprehensive Service Report
-                  </p>
-                  <div className="mt-2 flex items-center text-sm text-gray-600">
-                    <span className="inline-block w-3 h-3 bg0green-500 rounded-full mr-2"></span>
-                    <span>All work backed by our 60-day guarantee</span>
-                  </div>
-                </div>
-              </div>
-            )}
+               
+              )}
+            </motion.div>
           </div>
         </div>
       </div>
